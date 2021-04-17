@@ -1,18 +1,22 @@
+const Usuario = require('../models/user');
 
-
-const userGet = (req, res) => {
+const userGet = async(req, res) => {
     const params = req.query;
+    const users = await Usuario.find();
 
     res.json({
-        msg: 'GET api - controlador',
-        params
+        users
     })
 }
 
-const userPost =(req, res) => {
+const userPost = async (req, res) => {
     const body = req.body;
+    console.log(body);
+    const user = new Usuario(body);
+    await user.save();
+
     res.json({
-        body
+        user
     })
 }
 
