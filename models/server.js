@@ -12,7 +12,7 @@ class Server {
 
         this.port = process.env.PORT;
 
-        this.usuarioPath = '/api/usuarios';
+        this.usuarioPath = '/usuarios';
 
         //conectar a base de datos
         this.conectarDb();
