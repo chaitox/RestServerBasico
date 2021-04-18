@@ -1,11 +1,26 @@
+const user = require('../models/user');
 const Usuario = require('../models/user');
 
 const userGet = async(req, res) => {
     const params = req.query;
     const users = await Usuario.find();
+    const info =  {
+        "hola": "chau",
+        "chau": "hola"
+    }
+    var data = [];
+   for (const key in users) {
+       if (Object.hasOwnProperty.call(users, key)) {
+           const element = users[key];
+           
+           data.push({user: element, info})
+           console.log(data);
+       }
+   }
+
 
     res.json({
-        users
+        users: data,       
     })
 }
 
