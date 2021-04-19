@@ -4,6 +4,7 @@ const Usuario = require('../models/user');
 const userGet = async(req, res) => {
     const params = req.query;
     const users = await Usuario.find();
+    
     const info =  {
         "hola": "chau",
         "chau": "hola"
