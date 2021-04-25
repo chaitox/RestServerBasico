@@ -2,7 +2,11 @@ const provider = require('../models/provider');
 const Provider = require('../models/provider');
 
 const providerGet = async(req, res) =>{
-   const providers = await Provider.find();
+    console.log(req.query)
+    const {desde, limite} = req.query;
+   const providers = await Provider.find()
+   .skip(Number(desde))
+   .limit(Number(limite));
    res.json({
        providers
    });
